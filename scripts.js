@@ -15,6 +15,8 @@ input.addEventListener("blur", adicionaNumero);
 
 
 
+
+
 function adicionaNumero(event) {
    // lembrando que o numero do input é uma string
    const input = document.querySelector(".input_values");
@@ -73,6 +75,8 @@ function convertDolar() {
 
 
 
+
+
    // variaveis de conversao
 
    const euroOfTheDay = 0.95;
@@ -88,6 +92,8 @@ function convertDolar() {
    let conversionDolarToLibraExterlina = changedValue * libraOfTheDay;
 
    if (firstSelector == "dolar" && secondSelector == "dolar") {
+
+
 
       // CODIGO ADICIONADO
       value1.textContent = new Intl.NumberFormat("en-US", {
@@ -209,39 +215,11 @@ function convertReal() {
 
    if (firstSelector == "real" && secondSelector == "dolar") {
       // CODIGO NOVO
-      if (isNaN(oldValue)) {   
-         oldValue = 0.00;
-         conversionRealToDollar = 0;
-         message.textContent = "value invalid"; 
-       
+      alertMessage(oldValue , conversionRealToDollar , message );
 
-      } else {
-         message.textContent = ""; 
-
-      }
-
-
-      // CODIGO ADICIONADO
-      value1.textContent = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-
-
-      }).format(oldValue);
-
-
-
-      value2.innerHTML = new Intl.NumberFormat("en-US", {
-         style: "currency",
-         currency: "USD"
-      }).format(conversionRealToDollar);
-
-
-
-
-
+      summarizesValues(value1, value2, oldValue, conversionRealToDollar,
+         "pt-BR", "en-US", "BRL", "USD");
    }
-
 
    else if (firstSelector == "real" && secondSelector == "bitcoin") {
 
@@ -324,8 +302,8 @@ function convertReal() {
 
 
    }
-  
-         
+
+
 
 
 }
@@ -479,3 +457,42 @@ function selectorSecundary() {
 
 }
 
+
+
+
+function summarizesValues(value1, value2, oldValue, variableConversion,
+   language1, language2, countryCurrency1, countryCurrency2) {
+
+   // CODIGO ADICIONADO
+   value1.textContent = new Intl.NumberFormat(language1, {
+      style: "currency",
+      currency: countryCurrency1,
+
+
+   }).format(oldValue);
+
+
+
+   value2.innerHTML = new Intl.NumberFormat(language2, {
+      style: "currency",
+      currency: countryCurrency2
+   }).format(variableConversion);
+
+
+}
+
+function alertMessage(oldValue , valueConversion , message ) {
+
+   if (isNaN(oldValue)) {
+      oldValue = 0.00;
+      valueConversion = 0;
+      message.textContent = "value invalid";
+
+
+   } else {
+      message.textContent = "";
+
+   }
+
+
+ }
