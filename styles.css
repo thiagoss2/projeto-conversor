@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+:root {
+    --cor-roxa: #772FD3;
+    --cor-cinza: #BBBBBB;
+    --cor-cinza-escuro: #777777;
+    --cor-preto-claro: #555555;
+    --cor-banco: #FFFFFF;
+
+
+    --fonte-principal: font-family: 'Roboto', sans-serif;
+
+}
+
+
+.img_logo {
+    display: none;
+}
+
+main {
+    width: 375px;
+    background: #f4f4f4;
+    border-radius: 20px;
+    padding: 33px 24px 23px;
+    margin: 50px auto ;
+}
+
+label {
+    color: var(--cor-cinza-escuro);
+    font-size: 14px;
+    font-weight: 400;
+
+
+}
+
+select,input {
+    height: 48px;
+    width: 100%;
+    border: 1px solid var(--cor-cinza);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    appearance: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cor-preto-claro);
+
+
+}
+
+
+
+button {
+    height: 48px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background: var(--cor-roxa);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cor-banco);
+}
+
+button:hover {
+    opacity: 0.8;
+
+}
+
+section {
+    border: 1px solid var(--cor-roxa);
+    border-radius: 20px;
+    margin-top: 36px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+
+.arrow {
+    margin: 15px 0;
+}
+
+.currency_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+
+.currency {
+    font-size: 14px;
+    color: var(--cor-cinza-escuro);
+}
+
+.currency_value, .currency_value_to_convert {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--cor-preto-claro)
+}
+
+
+@media screen and (min-width: 1366px) {
+
+    body {
+        background-color: #772FD3;
+    }
+
+    .img_logo {
+        display: block;
+        height: 200px;
+        margin: 24px auto 0px;
+        border-radius: 50px 0px;
+
+    }
+
+   
+    label{
+        font-size: 18px;
+    }
+
+
+    
+
+        
+
+
+}
