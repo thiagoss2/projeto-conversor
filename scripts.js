@@ -212,104 +212,48 @@ function convertReal() {
    // O BITCOIN ESTA CONVERTENDO SIM É QUE O NUMERO DE CASAS DECIMAIS DELE É MUITO GRANDE
    let conversionRealToBitcoin = changedValue * bitcoinOfTheDay;
    let conversionRealToLibraExterlina = changedValue / libraOfTheDay;
-   
+
 
    if (firstSelector == "real" && secondSelector == "dolar") {
       // CODIGO NOVO
-      alertMessage(oldValue , conversionRealToDollar , message );
+      alertMessage(oldValue, conversionRealToDollar, message);
 
-      summarizesValues(value1, value2, oldValue, conversionRealToDollar,
+      summarizesValues(value1, value2, oldValue, conversionRealToDollar, ''
          "pt-BR", "BRL", "en-US", "USD");
    }
 
    else if (firstSelector == "real" && secondSelector == "bitcoin") {
 
-         // CODIGO NOVO
-      alertMessage(oldValue , conversionRealToDollar , message );
+      // CODIGO NOVO
+      alertMessage(oldValue, conversionRealToBitcoin, message);
 
-      summarizesValues(value1, value2, oldValue, conversionRealToDollar,
-         "pt-BR", "en-US", "BRL", "USD");
-
-      // CODIGO ADICIONADO
-      value1.textContent = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-
-
-      }).format(oldValue);
-
-
-      value2.innerHTML = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BTC",
-
-         minimumFractionDigits: 4,
-         maximumFractionDigits: 10
-
-      }).format(conversionRealToBitcoin);
-
-
-
+      summarizesValues(value1, value2, oldValue, conversionRealToBitcoin,
+         "pt-BR", "BRL", "pt-BR", "BTC");
 
    } else if (firstSelector == "real" && secondSelector == "euro") {
 
+      // CODIGO NOVO
+      alertMessage(oldValue, conversionRealToEuro, message);
 
-
-      // CODIGO ADICIONADO
-      value1.textContent = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-
-
-      }).format(oldValue);
-
-      value2.innerHTML = new Intl.NumberFormat("de-DE", {
-         style: "currency",
-         currency: "EUR"
-      }).format(conversionRealToEuro);
-
-
+      summarizesValues(value1, value2, oldValue, conversionRealToEuro,
+         "pt-BR", "BRL", "de-DE", "EUR");
 
    } else if (firstSelector == "real" && secondSelector == "libra") {
 
+      // CODIGO NOVO
+      alertMessage(oldValue, conversionRealToLibraExterlina, message);
 
-      // CODIGO ADICIONADO
-      value1.textContent = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-
-
-      }).format(oldValue);
-
-      value2.innerHTML = new Intl.NumberFormat("en-GB", {
-         style: "currency",
-         currency: "GBP"
-      }).format(conversionRealToLibraExterlina);
-
-
+      summarizesValues(value1, value2, oldValue, conversionRealToLibraExterlina,
+         "pt-BR", "BRL", "en-GB", "GBP");
 
    } else if (firstSelector == "real" && secondSelector == "real") {
 
+      // CODIGO NOVO
+      alertMessage(oldValue, oldValue, message);
 
-      // CODIGO ADICIONADO
-      value1.textContent = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL",
-
-
-      }).format(oldValue);
-
-      value2.innerHTML = new Intl.NumberFormat("pt-BR", {
-         style: "currency",
-         currency: "BRL"
-      }).format(oldValue);
-
-
-
+      summarizesValues(value1, value2, oldValue, oldValue,
+         "pt-BR", "BRL", "pt-BR", "BRL");
    }
-
-
-
 
 }
 
@@ -466,7 +410,7 @@ function selectorSecundary() {
 
 
 function summarizesValues(value1, value2, oldValue, variableConversion,
-   language1,countryCurrency1, language2 , countryCurrency2) {
+   language1, countryCurrency1, language2, countryCurrency2) {
 
    // CODIGO ADICIONADO
    value1.textContent = new Intl.NumberFormat(language1, {
@@ -486,7 +430,7 @@ function summarizesValues(value1, value2, oldValue, variableConversion,
 
 }
 
-function alertMessage(oldValue , valueConversion , message ) {
+function alertMessage(oldValue, valueConversion, message) {
 
    if (isNaN(oldValue)) {
       oldValue = 0.00;
@@ -500,4 +444,4 @@ function alertMessage(oldValue , valueConversion , message ) {
    }
 
 
- }
+}
