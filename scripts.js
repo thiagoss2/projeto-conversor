@@ -61,6 +61,7 @@ function convertDolar() {
    // input do do valor
    const inputValue = document.querySelector(".input_values").value;
 
+
    // CODIGO ADICIONADO
    // remove caracteres especias da String tira o . e troca pela virgula
    const newString = inputValue.replace(/\./g, "").replace(/,/g, ".");
@@ -87,7 +88,6 @@ function convertDolar() {
    let conversionDolarToLibraExterlina = changedValue * libraOfTheDay;
 
    if (firstSelector == "dolar" && secondSelector == "dolar") {
-
 
       // CODIGO ADICIONADO
       value1.textContent = new Intl.NumberFormat("en-US", {
@@ -182,6 +182,8 @@ function convertReal() {
    const firstSelector = document.querySelector(".box_select_one").value
    const secondSelector = document.querySelector(".box_select_two").value;
    let inputValue = document.querySelector(".input_values").value;
+   // CODIGO ADICIONADO
+   const message = document.querySelector(".message");
 
    // CODIGO ADICIONADO
    // remove caracteres especias da String tira o . e troca pela virgula
@@ -189,7 +191,7 @@ function convertReal() {
    // converte a String em numero
    const changedValue = parseFloat(newString);
    // pega o valor antigo
-   const oldValue = changedValue;
+   let oldValue = changedValue;
 
 
    // variaveis de conversao
@@ -206,7 +208,17 @@ function convertReal() {
    let conversionRealToLibraExterlina = changedValue / libraOfTheDay;
 
    if (firstSelector == "real" && secondSelector == "dolar") {
+      // CODIGO NOVO
+      if (isNaN(oldValue)) {   
+         oldValue = 0.00;
+         conversionRealToDollar = 0;
+         message.textContent = "value invalid"; 
+       
 
+      } else {
+         message.textContent = ""; 
+
+      }
 
 
       // CODIGO ADICIONADO
@@ -312,7 +324,8 @@ function convertReal() {
 
 
    }
-
+  
+         
 
 
 }

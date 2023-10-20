@@ -59,6 +59,14 @@ select,input {
 
 }
 
+.message {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+}
 
 
 button {
