@@ -212,18 +212,23 @@ function convertReal() {
    // O BITCOIN ESTA CONVERTENDO SIM É QUE O NUMERO DE CASAS DECIMAIS DELE É MUITO GRANDE
    let conversionRealToBitcoin = changedValue * bitcoinOfTheDay;
    let conversionRealToLibraExterlina = changedValue / libraOfTheDay;
+   
 
    if (firstSelector == "real" && secondSelector == "dolar") {
       // CODIGO NOVO
       alertMessage(oldValue , conversionRealToDollar , message );
 
       summarizesValues(value1, value2, oldValue, conversionRealToDollar,
-         "pt-BR", "en-US", "BRL", "USD");
+         "pt-BR", "BRL", "en-US", "USD");
    }
 
    else if (firstSelector == "real" && secondSelector == "bitcoin") {
 
+         // CODIGO NOVO
+      alertMessage(oldValue , conversionRealToDollar , message );
 
+      summarizesValues(value1, value2, oldValue, conversionRealToDollar,
+         "pt-BR", "en-US", "BRL", "USD");
 
       // CODIGO ADICIONADO
       value1.textContent = new Intl.NumberFormat("pt-BR", {
@@ -461,7 +466,7 @@ function selectorSecundary() {
 
 
 function summarizesValues(value1, value2, oldValue, variableConversion,
-   language1, language2, countryCurrency1, countryCurrency2) {
+   language1,countryCurrency1, language2 , countryCurrency2) {
 
    // CODIGO ADICIONADO
    value1.textContent = new Intl.NumberFormat(language1, {
